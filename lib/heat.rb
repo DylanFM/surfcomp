@@ -1,6 +1,6 @@
 class Heat
   
-  attr_reader :name, :competitors
+  attr_reader :competitors
   
   def initialize(competitors = [])
     @competitors = competitors
