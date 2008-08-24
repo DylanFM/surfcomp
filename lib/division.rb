@@ -15,14 +15,14 @@ class Division
     heats_count = @competitors.length.quo(BEST_HEAT_SIZE)
     extra_competitors = Integer((heats_count - heats_count.to_i) * BEST_HEAT_SIZE)
     #Start building heats
-    heat, extra = [], false
+    heat, extra = Heat.new, false
     @competitors.each do |competitor|
-      heat << competitor
+      heat.add_competitor(competitor)
       active << competitor
-      if heat.length == BEST_HEAT_SIZE || extra 
+      if heat.competitors.length == BEST_HEAT_SIZE || extra 
         if extra_competitors == 0 || extra
           @heats << heat
-          heat, extra = [], false
+          heat, extra = Heat.new, false
         else
           extra_competitors -= 1
           extra = true

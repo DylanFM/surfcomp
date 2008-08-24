@@ -1,6 +1,7 @@
 $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require 'test/unit'
 require 'Division'
+require 'Heat'
 
 class TestDivision < Test::Unit::TestCase
   
@@ -19,7 +20,7 @@ class TestDivision < Test::Unit::TestCase
   def test_all_competitors_in_heats
     @active_competitors = []
     @division.heats.each do |heat|
-      heat.each { |competitor| @active_competitors << competitor }
+      heat.competitors.each { |competitor| @active_competitors << competitor }
     end
     assert_equal(@competitors, @active_competitors)
   end
@@ -27,8 +28,8 @@ class TestDivision < Test::Unit::TestCase
   def test_heats_are_acceptable_size
     size = 4
     @division.heats.each do |heat|
-      assert(heat.length >= size-1, 'Heat is too small')
-      assert(heat.length <= size+1, 'Heat is too large')
+      assert(heat.competitors.length >= size-1, 'Heat is too small')
+      assert(heat.competitors.length <= size+1, 'Heat is too large')
     end
   end
   
