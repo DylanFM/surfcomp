@@ -6,7 +6,7 @@ class Division
   
   def initialize(name, competitors)
     @name, @competitors = name, competitors
-    create_heats()
+    create_heats
   end
   
   def create_heats
