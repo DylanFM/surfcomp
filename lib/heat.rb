@@ -13,7 +13,7 @@ class Heat
   
   def details
     output = "The heat starts at #@time and goes for #@length minutes. It takes place at #@location and consists of the following competitors:"
-    @competitors.each { |competitor| output += "\n\t- #{competitor}" }
+    @competitors.each { |competitor| output += "\n\t- #{competitor.name}" }
     output
   end
   

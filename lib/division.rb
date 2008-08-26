@@ -5,7 +5,8 @@ class Division
   BEST_HEAT_SIZE = 4
   
   def initialize(name, competitors)
-    @name, @competitors = name, competitors
+    @name = name
+    @competitors = competitors.collect! { |c| Competitor.new(c) }
     create_heats
   end
   
