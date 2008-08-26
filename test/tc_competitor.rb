@@ -6,7 +6,7 @@ class TestCompetitor < Test::Unit::TestCase
   
   def setup
     @name = 'Buttons'
-    @competitor = Competitor.new(name)
+    @competitor = Competitor.new(@name)
   end
   
   def test_competitor_is_correct
