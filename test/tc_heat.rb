@@ -31,11 +31,11 @@ class TestHeat < Test::Unit::TestCase
   
   def test_heat_details_include_all_info
     #Details should include time, location, all competitiors and the heat length
-    assert(@heat.details =~ Regexp.new(@time), 'Heat details should include time')
-    assert(@heat.details =~ Regexp.new(@location), 'Heat details should include location')
-    assert(@heat.details =~ Regexp.new(@length), 'Heat details should include length')
+    assert(@heat.to_s =~ Regexp.new(@time), 'Heat details should include time')
+    assert(@heat.to_s =~ Regexp.new(@location), 'Heat details should include location')
+    assert(@heat.to_s =~ Regexp.new(@length), 'Heat details should include length')
     @new_competitors.each { |c| 
-      assert(@heat.details =~ Regexp.new(c.name), "Heat details should include competitor: #{c}")
+      assert(@heat.to_s =~ Regexp.new(c.name), "Heat details should include competitor: #{c}")
     }
   end
   
