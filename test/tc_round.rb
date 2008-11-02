@@ -35,20 +35,21 @@ class TestRound < Test::Unit::TestCase
     end
   end
   
-  def test_round_start
-    @round.start
-    assert_equal('In progress', @round.status)
-    
-    @round.end
-    assert_equal('Finished', @round.status)
-    #All heats should be finished
+  def test_round_run_heats
+    @round.run_heats
     @round.heats.each do |heat|
       assert_equal('Finished', heat.status)
     end
   end
   
-  # def test_round_end
-  #     
-  #   end
+  def test_round_in
+    @round.start
+    assert_equal('In progress', @round.status)
+  end
+  
+  def test_round_end
+    @round.end
+    assert_equal('Finished', @round.status)
+  end
   
 end

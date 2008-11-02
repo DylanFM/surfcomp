@@ -1,6 +1,6 @@
 class Round
   
-  attr_reader :competitors, :heats, :status, :current
+  attr_reader :competitors, :heats, :status
   
   BEST_HEAT_SIZE = 4
   
