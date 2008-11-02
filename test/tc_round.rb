@@ -14,6 +14,7 @@ class TestRound < Test::Unit::TestCase
   end
   
   def test_new_round
+    assert_equal('Coming up', @round.status)
     assert_equal(false, @round.heats.empty?)
     assert_equal(@division.competitors, @round.competitors)
   end
@@ -32,6 +33,16 @@ class TestRound < Test::Unit::TestCase
       assert(heat.competitors.length >= size-1, 'Heat is too small')
       assert(heat.competitors.length <= size+1, 'Heat is too large')
     end
+  end
+  
+  def test_round_start
+    @round.start
+    assert_equal('In progress', @round.status)
+  end
+  
+  def test_round_end
+    @round.end
+    assert_equal('Finished', @round.status)
   end
   
 end

@@ -1,11 +1,11 @@
 class Round
   
-  attr_reader :competitors, :heats
+  attr_reader :competitors, :heats, :status
   
   BEST_HEAT_SIZE = 4
   
   def initialize(competitors)
-    @competitors, @heats = competitors, []
+    @competitors, @heats, @status = competitors, [], 'Coming up'
     build_heats
   end
   
@@ -18,6 +18,14 @@ class Round
         heat = Heat.new
       end
     end
+  end
+  
+  def start
+    @status = 'In progress'
+  end
+  
+  def end
+    @status = 'Finished'
   end
     
 end

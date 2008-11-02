@@ -19,7 +19,8 @@ class TestHeat < Test::Unit::TestCase
     @heat.length = @length
   end
 
-  def test_competitors_added_at_init
+  def test_new_heat
+    assert_equal('Coming up', @heat.status)
     assert_equal(@new_competitors, @heat.competitors)
   end
   
@@ -37,6 +38,16 @@ class TestHeat < Test::Unit::TestCase
     @new_competitors.each { |c| 
       assert(@heat.to_s =~ Regexp.new(c.name), "Heat details should include competitor: #{c}")
     }
+  end
+
+  def test_heat_start
+    @heat.start
+    assert_equal('In progress', @heat.status)
+  end
+
+  def test_heat_end
+    @heat.end
+    assert_equal('Finished', @heat.status)
   end
   
 end
