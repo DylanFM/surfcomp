@@ -6,5 +6,4 @@ class Competitor
     @name = name
   end
   
-  
 end
