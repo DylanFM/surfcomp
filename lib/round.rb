@@ -23,8 +23,13 @@ class Round
   def run_heats
     @heats.collect! do |heat|
       heat.start
+      @current_heat = heat
       heat.end
     end
+  end
+  
+  def current_heat
+    if @status == 'In progress' then @current_heat else false end
   end
   
   def start

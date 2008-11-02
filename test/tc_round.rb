@@ -42,6 +42,10 @@ class TestRound < Test::Unit::TestCase
     end
   end
   
+  def test_current_heat_false_unless_in_progress
+    assert_equal(false, @round.current_heat)
+  end
+  
   def test_round_in
     @round.start
     assert_equal('In progress', @round.status)
