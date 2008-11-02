@@ -16,23 +16,6 @@ class TestDivision < Test::Unit::TestCase
   def test_new_division
     assert_equal(@name, @division.name)
     assert_equal(@new_competitors, @division.competitors)
-    assert_equal(false, @division.heats.empty?)
-  end
-  
-  def test_all_competitors_in_heats
-    @active_competitors = []
-    @division.heats.each do |heat|
-      heat.competitors.each { |competitor| @active_competitors << competitor }
-    end
-    assert_equal(@new_competitors, @active_competitors)
-  end
-  
-  def test_heats_are_acceptable_size
-    size = 4
-    @division.heats.each do |heat|
-      assert(heat.competitors.length >= size-1, 'Heat is too small')
-      assert(heat.competitors.length <= size+1, 'Heat is too large')
-    end
   end
   
 end
