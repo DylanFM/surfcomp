@@ -1,8 +1,7 @@
 Surfcomp!
 
-Surf competitions have a consistent structure and a lot of the work in running one can be automated. I want to address this.
+A little ruby program for running a surfing competition.
 
-Within a surf competition you have divisions. These divisions have competitiors. The competitors compete in 3-5 (ideally 4) person heats. The top n competitors per heat move into the next round, until the final when you get your winners.
-In the heat the surfers get scored for their rides. Heats generally last 20-30 minutes. The competitors generally have a limit of 10 waves per heat, and it's common for their best 3 scores to be summed for their final score and to sort out the ranking within the heat. Rides are scored out of 10.
+I'm modelling this off what I know about my local boardrider's competitions (http://avocaboardriders.com) but I'd like it to be able to model the ASP world tour's format too.
 
-That's all I can think of for now...
+An excercise in becoming more familiar with Ruby.
