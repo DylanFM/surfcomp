@@ -19,10 +19,12 @@ class Heat
   
   def start
     @status = 'In progress'
+    self
   end
   
   def end
     @status = 'Finished'
+    self
   end
   
 end

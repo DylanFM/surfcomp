@@ -1,6 +1,6 @@
 class Round
   
-  attr_reader :competitors, :heats, :status
+  attr_reader :competitors, :heats, :status, :current
   
   BEST_HEAT_SIZE = 4
   
@@ -20,8 +20,16 @@ class Round
     end
   end
   
+  def run_heats
+    @heats.collect! do |heat|
+      heat.start
+      heat.end
+    end
+  end
+  
   def start
     @status = 'In progress'
+    run_heats
   end
   
   def end
