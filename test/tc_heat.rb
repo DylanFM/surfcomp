@@ -35,9 +35,9 @@ class TestHeat < Test::Unit::TestCase
     assert(@heat.to_s =~ Regexp.new(@time), 'Heat details should include time')
     assert(@heat.to_s =~ Regexp.new(@location), 'Heat details should include location')
     assert(@heat.to_s =~ Regexp.new(@length), 'Heat details should include length')
-    @new_competitors.each { |c| 
+    @new_competitors.each do |c| 
       assert(@heat.to_s =~ Regexp.new(c.name), "Heat details should include competitor: #{c}")
-    }
+    end
   end
 
   def test_heat_start
@@ -45,8 +45,8 @@ class TestHeat < Test::Unit::TestCase
     assert_equal('In progress', @heat.status)
   end
 
-  def test_heat_end
-    @heat.end
+  def test_heat_finish
+    @heat.finish
     assert_equal('Finished', @heat.status)
   end
   

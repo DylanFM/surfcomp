@@ -22,7 +22,7 @@ class Heat
     self
   end
   
-  def end
+  def finish
     @status = 'Finished'
     self
   end

@@ -24,7 +24,7 @@ class Round
     @heats.collect! do |heat|
       heat.start
       @current_heat = heat
-      heat.end
+      heat.finish
     end
   end
   
@@ -37,7 +37,7 @@ class Round
     run_heats
   end
   
-  def end
+  def finish
     @status = 'Finished'
   end
     
