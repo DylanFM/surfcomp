@@ -1,7 +1,6 @@
 $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require 'test/unit'
 require 'Division'
-require 'Heat'
 require 'Competitor'
 
 class TestDivision < Test::Unit::TestCase
