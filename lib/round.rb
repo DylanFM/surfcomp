@@ -22,6 +22,7 @@ class Round
   
   def run_heats
     @heats.collect! do |heat|
+      next if heat.status != 'Coming up'
       heat.start
       @current_heat = heat
       heat.finish
