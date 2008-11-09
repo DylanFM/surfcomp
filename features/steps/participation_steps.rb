@@ -24,3 +24,9 @@ end
 Then "all entrants should be competing" do
   @division.competitors.should == @new_competitors
 end
+
+Then "all entrants should be competitors" do
+  @division.competitors.each do |c|
+    c.class.name.should == 'Competitor'
+  end
+end

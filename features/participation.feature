@@ -6,3 +6,4 @@ Feature: Competition has competitors
     Given there are people who have entered the competition
     When we begin the surf competition
     Then all entrants should be competing
+	And all entrants should be competitors
