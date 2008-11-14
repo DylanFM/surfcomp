@@ -7,7 +7,7 @@ class Heat
     @competitors, @status = competitors, 'Coming up'
   end
   
-  def add_competitor(competitor)
+  def <<(competitor)
     @competitors << competitor
   end
   
