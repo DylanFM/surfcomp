@@ -26,7 +26,7 @@ class TestHeat < Test::Unit::TestCase
   
   def test_competitor_is_added
     competitor = Competitor.new('Marshall McLuhan')
-    @heat.add_competitor(competitor)
+    @heat << competitor
     assert_equal(competitor, @heat.competitors.last)
   end
 
