@@ -14,7 +14,7 @@ class TestRound < Test::Unit::TestCase
   end
   
   def test_new_round
-    assert_equal('Coming up', @round.status)
+    assert_equal(:coming_up, @round.status)
     assert_equal(false, @round.heats.empty?)
     assert_equal(@division.competitors, @round.competitors)
   end
@@ -38,7 +38,7 @@ class TestRound < Test::Unit::TestCase
   def test_round_run_heats
     @round.run_heats
     @round.heats.each do |heat|
-      assert_equal('Finished', heat.status)
+      assert_equal(:finished, heat.status)
     end
   end
   
@@ -48,12 +48,12 @@ class TestRound < Test::Unit::TestCase
   
   def test_round_start
     @round.start
-    assert_equal('In progress', @round.status)
+    assert_equal(:in_progress, @round.status)
   end
   
   def test_round_finish
     @round.finish
-    assert_equal('Finished', @round.status)
+    assert_equal(:finished, @round.status)
   end
   
 end

@@ -47,12 +47,12 @@ Then "the heats should be of an acceptable size" do
 end
 
 Then "the round is coming up" do
-  @round.status.should == 'Coming up'
+  @round.status.should == :coming_up
 end
 
 Then "the round has heats which are coming up" do
   @round.heats.each do |h|
-    h.status.should == 'Coming up'
+    h.status.should == :coming_up
   end
 end
 
@@ -61,15 +61,15 @@ Then "there should not be a current heat" do
 end
 
 Then "the round is in progress" do
-  @round.status.should == 'In progress'
+  @round.status.should == :in_progress
 end
 
 Then "the heats have been run" do
   @round.heats.each do |heat|
-    heat.status.should == 'Finished'
+    heat.status.should == :finished
   end
 end
 
 Then "the round is finished" do
-  @round.status.should == 'Finished'
+  @round.status.should == :finished
 end

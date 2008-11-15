@@ -5,7 +5,7 @@ class Round
   BEST_HEAT_SIZE = 4
   
   def initialize(competitors)
-    @competitors, @heats, @status = competitors, [], 'Coming up'
+    @competitors, @heats, @status = competitors, [], :coming_up
     build_heats
   end
   
@@ -23,7 +23,7 @@ class Round
   
   def run_heats
     @heats.collect! do |heat|
-      next if heat.status != 'Coming up'
+      next if heat.status != :coming_up
       heat.start
       @current_heat = heat
       heat.finish
@@ -31,16 +31,16 @@ class Round
   end
   
   def current_heat
-    if @status == 'In progress' then @current_heat else false end
+    if @status == :in_progress then @current_heat else false end
   end
   
   def start
-    @status = 'In progress'
+    @status = :in_progress
     run_heats
   end
   
   def finish
-    @status = 'Finished'
+    @status = :finished
   end
     
 end

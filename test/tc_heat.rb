@@ -20,7 +20,7 @@ class TestHeat < Test::Unit::TestCase
   end
 
   def test_new_heat
-    assert_equal('Coming up', @heat.status)
+    assert_equal(:coming_up, @heat.status)
     assert_equal(@new_competitors, @heat.competitors)
   end
   
@@ -32,12 +32,12 @@ class TestHeat < Test::Unit::TestCase
 
   def test_heat_start
     @heat.start
-    assert_equal('In progress', @heat.status)
+    assert_equal(:in_progress, @heat.status)
   end
 
   def test_heat_finish
     @heat.finish
-    assert_equal('Finished', @heat.status)
+    assert_equal(:finished, @heat.status)
   end
   
   def test_heat_details_include_all_info

@@ -4,7 +4,7 @@ class Heat
   attr_accessor :location, :time, :length
   
   def initialize(competitors = [])
-    @competitors, @status = competitors, 'Coming up'
+    @competitors, @status = competitors, :coming_up
   end
   
   def <<(competitor)
@@ -18,12 +18,12 @@ class Heat
   end
   
   def start
-    @status = 'In progress'
+    @status = :in_progress
     self
   end
   
   def finish
-    @status = 'Finished'
+    @status = :finished
     self
   end
   
