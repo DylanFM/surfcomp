@@ -15,7 +15,7 @@ After do
 end
 
 Given "there is a division containing competitors" do
-  @division.competitors.empty?.should == false
+  @division.competitors.should_not be_empty
 end
 
 When "a round is created" do

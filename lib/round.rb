@@ -10,12 +10,13 @@ class Round
   end
   
   def build_heats
-    heat = Heat.new
+    heat = nil
     @competitors.each do |competitor|
+      heat = Heat.new if heat.nil?
       heat << competitor
       if heat.competitors.length == BEST_HEAT_SIZE or competitor == @competitors.last
         @heats << heat
-        heat = Heat.new
+        heat = nil
       end
     end
   end
