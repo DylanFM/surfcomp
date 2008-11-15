@@ -57,7 +57,7 @@ Then "the round has heats which are coming up" do
 end
 
 Then "there should not be a current heat" do
-  @round.current_heat.should == false
+  @round.current_heat.should be_nil
 end
 
 Then "the round is in progress" do

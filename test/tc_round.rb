@@ -43,7 +43,7 @@ class TestRound < Test::Unit::TestCase
   end
   
   def test_current_heat_false_unless_in_progress
-    assert_equal(false, @round.current_heat)
+    assert(@round.current_heat.nil?)
   end
   
   def test_round_start

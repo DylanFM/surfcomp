@@ -31,7 +31,7 @@ class Round
   end
   
   def current_heat
-    if @status == :in_progress then @current_heat else false end
+    @current_heat unless @status != :in_progress
   end
   
   def start
