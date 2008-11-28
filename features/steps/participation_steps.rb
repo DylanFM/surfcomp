@@ -13,11 +13,11 @@ end
 After do
 end
 
-Given "there are people who have entered the competition" do
+Given "there are entrants" do
   @competitors.empty?.should == false
 end
 
-When "we begin the surf competition" do
+When "we begin the competition" do
   @division = Division.new(@name, @competitors)
 end
 

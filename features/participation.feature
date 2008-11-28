@@ -1,9 +1,13 @@
 Feature: Competition has competitors
-  In order to have a surfing competition
-  Competitors should be added to their divisions
+  In order to run a competition
+  As a competition organiser
+  I want to add the competitors to their division
 
   Scenario: Surf competition begins
-    Given there are people who have entered the competition
-    When we begin the surf competition
+    Given there are entrants
+    When we begin the competition
     Then all entrants should be competing
     And all entrants should be competitors
+
+      
+    

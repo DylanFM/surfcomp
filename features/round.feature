@@ -1,6 +1,7 @@
 Feature: Rounds have heats and they are run
-  In order to have a surfing competition
-  Competitors should be sorted into heats and the heats should be run
+  In order to run a competition
+  As a competition organiser
+  I want competitors sorted into heats and then the heats run
 
   Scenario: Make a new round
     Given there is a division containing competitors
