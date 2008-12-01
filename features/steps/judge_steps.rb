@@ -1,10 +1,8 @@
 require 'spec'
 $:.unshift(File.dirname(__FILE__) + '/../../lib')
 
-require 'Division'
 require 'Competitor'
 require 'Heat'
-require 'Round'
 
 Before do
   @competitors = ['Dylan Fogarty-MacDonald', 'Luke Kannar', 'Kelly Slater', 'Matt Graham-Ellison', 'Tom Carroll']
