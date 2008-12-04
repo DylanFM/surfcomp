@@ -5,18 +5,16 @@ class Heat
   
   def initialize(competitors = [], judges = [])
     @competitors, @judges, @status = competitors, judges, :coming_up
-    @judges.collect! do |judge|
-      judge.new_heat(@competitors)
-    end
+    initialise_judges
   end
   
   def <<(competitor)
-    @competitors << competitor
+    competitors << competitor
   end
   
   def to_s
-    output = "The heat starts at #@time and goes for #@length minutes. It takes place at #@location and consists of the following competitors:"
-    @competitors.each { |competitor| output += "\n\t- #{competitor.name}" }
+    output = "The heat starts at #{time} and goes for #{length} minutes. It takes place at #{location} and consists of the following competitors:"
+    competitors.each { |competitor| output += "\n\t- #{competitor.name}" }
     output
   end
   
@@ -25,12 +23,14 @@ class Heat
     self
   end
   
+  def initialise_judges
+    judges.collect! { |j| j.new_heat(competitors) }
+  end
+  
   def competitor_catches_wave(competitor)
     comptetitor = competitors.select { |c| c == competitor }.first
     competitor.catch_wave
-    judges.each do |judge|
-      judge.score_wave(competitor)
-    end
+    judges.each { |j| j.score_wave(competitor) }
   end
   
   def finish
