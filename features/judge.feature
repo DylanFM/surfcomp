@@ -9,13 +9,13 @@ Feature: Judges score competitors in heats
     Then there should be 3 judges for the heat
     
   Scenario: Competitor catches a wave
-    Given the heat is run
+    Given a heat is run
     When a competitor catches a wave
-    Then the competitors wave count should increase by 1
-    And each judge should submit a score for that wave
+    Then their wave count should increase by 1
+    And each judge should give the wave a score out of 10
   
   Scenario: Heat finishes
-    Given the heat is run
+    Given a heat is run
     When the heat finishes
-    Then each competitor should have the same amount of scores
+    Then each competitor should have no more than 10 scores
   
