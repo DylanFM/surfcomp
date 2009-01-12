@@ -1,7 +1,5 @@
-Surfcomp!
+#Surfcomp!
 
-A little ruby program for running a surfing competition.
+##A little ruby program for running a surfing competition.
 
 I'm modelling this off what I know about my local boardrider's competitions (http://avocaboardriders.com) but I'd like it to be able to model the ASP world tour's format too.
-
-An excercise in becoming more familiar with Ruby.
