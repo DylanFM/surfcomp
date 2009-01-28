@@ -1,35 +1,48 @@
 require 'spec'
 $:.unshift(File.dirname(__FILE__) + '/../../lib')
 
+require 'Tabulator'
+
 Before do
+  @tabulator = Tabulator.new
 end
 
-After do
+Given %r|a heat has finished| do
+  When 'the heat is made'
+  When 'the heat is started'
+  #Simulate competitors catching waves in a heat
+  0...20.times do
+    competitor = @heat.competitors[rand(@heat.competitors.length)]
+    @heat.competitor_catches_wave(competitor)
+  end
+  When 'the heat finishes'
 end
 
-Given /^a heat has finished$/ do
+When %r|the heat's judges submit their scores| do
+  @tabulator.receive_scores(@heat.judges)
 end
 
-When /^the heat's judges submit their scores$/ do
+Then %r|the scores are reduced to the top 3 per competitor| do
+  @tabulator.reduce_scores
+  @tabulator.current_heat.each_value do |competitor_scores|
+    competitor_scores.length.should_not_be > 3
+  end
 end
 
-Then /^the scores are reduced to the top 3 per competitor$/ do
+Given %r|the scores are ready for totaling| do
 end
 
-Then /^the scores are ready for totaling$/ do
+When %r|each judge's scores are totaled per competitor| do
 end
 
-When /^each judge's scores are totaled per competitor$/ do
+Then %r|the judges' heat places are calculated| do
 end
 
-Then /^the judges' heat places are calculated$/ do
+When %r|each competitor's places per judge are totaled| do
 end
 
-When /^each competitor's places per judge are totaled$/ do
+Then %r|the ranks of the competitors can be found| do
 end
 
-Then /^the ranks of the competitors can be found$/ do
-end
-
-Then /^the ranks of the competitors are from lowest total to the highest$/ do
+Then %r|the ranks of the competitors are from lowest total to the highest| do
 end
