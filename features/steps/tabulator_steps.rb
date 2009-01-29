@@ -11,7 +11,7 @@ Given %r|a heat has finished| do
   When 'the heat is made'
   When 'the heat is started'
   #Simulate competitors catching waves in a heat
-  0...20.times do
+  35.times do
     competitor = @heat.competitors[rand(@heat.competitors.length)]
     @heat.competitor_catches_wave(competitor)
   end
