@@ -7,15 +7,20 @@ class Judge
   end
   
   def new_heat(competitors)
-    old_scores << scores.dup
+    if scores.empty?
+      scores = {}
+    else
+      old_scores << scores.dup
+    end
     competitors.each do |c|
-      scores[c.object_id.to_sym] = []
+      @scores[c.to_s.to_sym] = []
     end
     self
   end
   
   def score_wave(competitor)
-    scores[competitor.object_id.to_sym] << rand(10).to_i
+    raise "Competitor not found" unless scores.has_key? competitor.to_s.to_sym
+    scores[competitor.to_s.to_sym] << rand(10).to_i
   end
   
 end

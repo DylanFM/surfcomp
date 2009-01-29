@@ -28,7 +28,7 @@ class Heat
   end
   
   def competitor_catches_wave(competitor)
-    comptetitor = competitors.select { |c| c == competitor }.first
+    comptetitor = competitors.select { |c| c == competitor }
     competitor.catch_wave
     judges.each { |j| j.score_wave(competitor) }
   end

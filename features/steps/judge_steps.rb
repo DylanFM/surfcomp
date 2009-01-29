@@ -44,7 +44,7 @@ end
 
 Then /^each judge should give the wave a score out of 10$/ do
   @heat.judges.each do |judge|
-    competitor_scores = judge.scores[@competitor.object_id.to_sym]
+    competitor_scores = judge.scores[@competitor.to_s.to_sym]
     competitor_scores.length.should == @competitor.wave_count
     competitor_scores.each do |score|
       score.should be_instance_of(Fixnum)
@@ -56,7 +56,7 @@ end
 Then /^each competitor should have no more than 10 scores$/ do
   @heat.competitors.each do |competitor|
     @heat.judges.each do |judge|
-      judge.scores[competitor.object_id.to_sym].length.should <= 10
+      judge.scores[competitor.to_s.to_sym].length.should <= 10
     end
   end
 end
