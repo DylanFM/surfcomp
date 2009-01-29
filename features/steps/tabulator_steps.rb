@@ -30,6 +30,9 @@ Then %r|the scores are reduced to the top 3 per competitor| do
 end
 
 Given %r|the scores are ready for totaling| do
+  When 'a heat has finished'
+  When "the heat's judges submit their scores"
+  When 'the scores are reduced to the top 3 per competitor'
 end
 
 When %r|each judge's scores are totaled per competitor| do
