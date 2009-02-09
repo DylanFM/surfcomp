@@ -1,9 +1,3 @@
-require 'spec'
-$:.unshift(File.dirname(__FILE__) + '/../../lib')
-
-require 'Division'
-require 'Competitor'
-
 Before do
   @name = 'Opens'
   @competitors = ['Dylan Fogarty-MacDonald', 'Luke Kannar', 'Kelly Slater', 'Matt Graham-Ellison', 'Tom Carroll', 'Barton Lynch', 'Kent MacDonald', 'David MacDonald', 'Manoa Drollet', 'Shane Beschen', 'Luke Egan', 'Mark Occilupo', 'Shane Powell', 'Shaun Oldfield', 'Dave Oldfield', 'Ulrich Jaeger', 'Belynda Jaeger', 'Adrian Buchan', 'Jughead']

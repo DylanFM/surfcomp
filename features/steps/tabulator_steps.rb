@@ -1,8 +1,3 @@
-require 'spec'
-$:.unshift(File.dirname(__FILE__) + '/../../lib')
-
-require 'Tabulator'
-
 Before do
   @tabulator = Tabulator.new
 end

@@ -1,8 +1,3 @@
-require 'spec'
-$:.unshift(File.dirname(__FILE__) + '/../../lib')
-
-require 'Competitor'
-
 Before do
   @name = 'Buttons'
 end

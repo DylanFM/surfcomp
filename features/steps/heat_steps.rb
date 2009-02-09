@@ -1,9 +1,3 @@
-require 'spec'
-$:.unshift(File.dirname(__FILE__) + '/../../lib')
-
-require 'Competitor'
-require 'Heat'
-
 Before do
   @competitors = ['Dylan Fogarty-MacDonald', 'Luke Kannar', 'Kelly Slater', 'Matt Graham-Ellison', 'Tom Carroll']
   @new_competitors = @competitors.collect! { |c| Competitor.new(c) }
